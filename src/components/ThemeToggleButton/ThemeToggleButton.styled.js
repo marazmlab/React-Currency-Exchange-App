@@ -14,6 +14,7 @@ export const ThemeButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 
   @media (max-width: 768px) {
     padding: 1rem;
@@ -23,5 +24,9 @@ export const ThemeButton = styled.button`
   @media (max-width: 480px) {
     padding: 0.5rem;
     font-size: 0.7rem;
+  }
+  
+  &:hover {
+    background-color: ${({ theme }) => theme.buttonHover};
   }
 `;

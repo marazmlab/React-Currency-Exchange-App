@@ -4,7 +4,7 @@ import { ThemeButton } from './ThemeToggleButton.styled';
 const ThemeToggleButton = ({ isDarkMode, toggleTheme }) => {
     return (
         <ThemeButton onClick={toggleTheme}>
-            Switch to {isDarkMode ? 'Light' : 'Dark'} Mode
+            Switch to {isDarkMode ? 'Dark' : 'Light'} Mode
         </ThemeButton>
     );
 };
