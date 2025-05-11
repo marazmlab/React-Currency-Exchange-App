@@ -1,7 +1,7 @@
 export const lightTheme = {
   background: ' #ffffff',
   text: ' #000000',
-  primary: 'rgb(161, 154, 225)',
+  primary: ' #bb86fc',
 };
 
 export const darkTheme = {

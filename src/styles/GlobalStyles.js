@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
     *, *::before, *::after {
         margin: 0;
-        padding: 0px;
+        padding: 0;
         box-sizing: border-box;
     }
 
@@ -30,6 +30,18 @@ const GlobalStyles = createGlobalStyle`
         cursor: pointer;
         border: none;
         background: none;
+    }
+
+    @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+        font-size: 12px;
+        }
     }
 `;
 

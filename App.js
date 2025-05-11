@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from './src/styles/theme';
 import GlobalStyles from './src/styles/GlobalStyles';
-import ThemeToggleContainer from './src/components/ThemeToggleContainer';
+import ThemeToggleContainer from './src/containers/ThemeToggleContainer';
 
 const App = () => {
     const [isDarkMode] = useState(false);
