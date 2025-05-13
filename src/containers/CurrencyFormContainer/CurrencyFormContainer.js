@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCurrency } from '../../redux/actions/currencyActions';
 import CurrencyForm from "../../components/CurrencyForm";
+import fetchExchangeRate from "../../services/fetchExchangeRate";
 
 const CurrencyFormContainer = () => {
     const [formData, setFormData] = useState({
@@ -25,12 +26,32 @@ const CurrencyFormContainer = () => {
     };
 
     // Obsługa zmiany w polach formularza
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData, 
             [name]: value,
         }));
+
+        if (name === 'date' && formData.currency) {
+            try {
+                const rate = await fetchExchangeRate(formData.currency, value);
+                if (rate && formData === 'number')  {
+                    setFormData((prevData) => ({
+                        ...prevData,
+                        price: rate.toFixed(2),
+                    }));
+                } else {
+                    console.error(`Rate for ${formData.currency} is missing`)
+                    setFormData((prevData) => ({
+                        ...prevData,
+                        price: "N/A",
+                }));
+                }
+            } catch (error) {
+                console.error("Error fetching exchange rate:", error);
+            }
+        }
     };
 
     // Obsługa wysyłania formularza
