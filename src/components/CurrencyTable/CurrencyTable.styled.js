@@ -52,3 +52,35 @@ export const TableCell = styled.td`
 export const TableBody = styled.tbody`
   // just in case
 `;
+
+export const PortfolioSummary = styled.div`
+  border: 2px solid ${({ theme }) => theme.primary};
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+
+  h3 {
+    margin-bottom: 0.5rem;
+    color: ${({ theme }) => theme.text};
+  }
+
+  .total-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .profit-loss {
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    &.positive {
+      color: #4CAF50; /* Zielony dla zysku */
+    }
+
+    &.negative {
+      color: #F44336; /* Czerwony dla straty */
+    }
+  }
+`;
