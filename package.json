@@ -1,7 +1,7 @@
 {
-  "name": "task-react-redux-enhancement",
+  "name": "react-currency-exchange-app",
   "version": "1.0.0",
-  "description": "App builded from scratch",
+  "description": "Advanced React + Redux currency wallet application with real-time exchange rates",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

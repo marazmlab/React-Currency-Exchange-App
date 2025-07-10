@@ -29,5 +29,6 @@ module.exports = {
   devServer: {
     static: './dist',
     port: 3000,
+    open: true,
   },
 };

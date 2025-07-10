@@ -1,46 +1,123 @@
-> ⭐ **\*README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!\***
->
-> 🎁 _Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**._
+# 💰 Currency Exchange App
+
+Simple React + Redux learning project for currency conversion. Built to practice Redux fundamentals, API integration, and styled-components.
+
+## ✨ Features
+
+- Convert between different currencies
+- Add and manage currency amounts
+- Fetch live exchange rates from API
+- Theme switching (light/dark mode)
+- Form handling with Redux state management
 
 &nbsp;
 
-# Portfel walutowy
+## 🔶 Tech Stack
 
-Zbuduj aplikację, która będzie obliczać potencjalny zysk lub stratę z posiadanych walut.
-
-Użytkownik ma mieć możliwość wprowadzenia poniższych informacji:
-
-- rodzaj posiadanej waluty
-- jej ilość
-- data zakupu
-- cena zakupu (ten element można zautomatyzować – kiedy zostanie wybrana data, to cena uzupełni się automatycznie przy pomocy API. Oczywiście użytkownik będzie mógł tę cenę zmodyfikować).
-
-Zapisuj te informacje w [localStorage](https://frontstack.pl/czym-jest-local-storage-i-jak-uzywac/) jako tablicę przechowującą obiekty. Po uruchomieniu strony zawsze sprawdzaj, czy w LS są już przechowywane jakieś dane. Jeśli tak, wczytuj je do widoku aplikacji.
-
-Następnie przy pomocy [API](https://exchangeratesapi.io/) pobieraj aktualne kursy walut użytkownika i przypisuj odpowiednią wartość do każdego elementu w tablicy.
-
-// Noted: Avoid using Axios for further work. Instead, use the Fetch API for HTTP requests.
-
-> **Uwaga:** w tym projekcie możesz napotkać ostrzeżenia lub błędy związane z _mixed content_, ponieważ darmowa wersja exchangeratesapi.io oferuje jedynie niezabezpieczone połączenie (HTTP). Mixed content występuje, gdy żądanie nie jest zabezpieczone przez protokół HTTPS (czego wymaga polityka bezpieczeństwa przeglądarek), czyli ładowana jest zawartość HTTP, np. grafiki, skrypty, style itp. Aby umożliwić ładowanie zawartości HTTP, należy [zmienić ustawienia przeglądarki](https://stackoverflow.com/questions/18321032/how-to-get-chrome-to-allow-mixed-content) dla danej strony. Innym wyjściem jest zakupienie płatnej wersji exchangeratesapi.io albo skorzystanie z innego API (jeśli takie znajdziesz, to będę wdzięczny za informację! ;)).
+- **React** - Component-based UI
+- **Redux** - State management  
+- **Styled Components** - CSS-in-JS styling
+- **Webpack** - Build tool
+- **ExchangeRatesAPI** - Currency data
 
 &nbsp;
 
-Wynik działania aplikacji mógłby się sprowadzać do poniższej tabeli:
+## 🔶 What I Learned
 
-| Waluta | Ilość | Data zakupu | Cena zakupu | Obecny kurs | Obecna wartość | Zysk/Strata    |
-| ------ | ----- | ----------- | ----------- | ----------- | -------------- | -------------- |
-| EUR    | 100   | 2020-01-01  | 4.38        | 4.49        | 449.00         | 11.00 (+2.5%)  |
-| EUR    | 100   | 2020-03-01  | 4.48        | 4.49        | 449.00         | 1.00 (+0.2%)   |
-| USD    | 100   | 2020-03-01  | 3.91        | 3.71        | 371.00         | -20.00 (-5.2%) |
-
-Stanem zarządzaj przy pomocy Reduxa, wykorzystując oddzielny Magazyn dla danych z localStorage ([przykład](https://dev.to/link2twenty/react-redux-and-localstorage-2lih)) oraz dla API. Całość połącz przy pomocy `.combineReducers()`.
-
-Stwórz projekt tak, aby każdy z elementów w łatwy sposób można było przenieść do innej aplikacji.
-
-PS Jeśli uznasz, że Twoja aplikacja powinna być bardziej rozbudowana, możesz przechowywać historię sprawdzeń danej waluty w localStorage i [generować wykres](https://github.com/jerairrest/react-chartjs-2) prezentujący poziom zysków lub strat dla danej pozycji.
+- **Redux Basics** - Store setup, actions, and reducers
+- **API Integration** - Fetching and handling external data
+- **Component Architecture** - Separating logic from presentation
+- **Styled Components** - CSS-in-JS and theming
+- **Form Handling** - Controlled components with Redux
 
 &nbsp;
 
-> ⭐ **\*README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!\***
->
-> 🎁 _Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**._
+## 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/marazmlab/react-currency-exchange-app.git
+cd react-currency-exchange-app
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+&nbsp;
+
+## 🔶 Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── CurrencyForm/   # Form for adding currencies
+│   └── CurrencyTable/  # Display currency list
+├── containers/         # Redux-connected components
+├── redux/             # Redux store and reducers
+├── services/          # API calls
+└── styles/           # Styled components and themes
+```
+
+&nbsp;
+
+## 🔶 Code Examples
+
+### Redux Store Configuration
+
+```javascript
+import { createStore, combineReducers } from 'redux';
+import currencyReducer from './reducers/currencyReducer';
+
+const rootReducer = combineReducers({
+    currency: currencyReducer,
+});
+
+const store = createStore(rootReducer);
+
+export default store;
+```
+
+### API Integration Service
+
+```javascript
+const fetchExchangeRate = async (targetCurrency = null, date = 'latest') => {
+    const API_KEY = 'd4fc05d2e0918ea984d9e900ba8f6147';
+    const url = `https://api.exchangeratesapi.io/${date}?access_key=${API_KEY}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        if (!data.success) {
+            throw new Error(data.error.type || "Unknown API error");
+        }
+
+        return data.rates;
+    } catch (error) {
+        console.error("Error fetching exchange rate:", error);
+        return null;
+    }
+};
+```
+&nbsp;
+
+## 🔶 Feel free to contact me
+
+If you have any questions or feedback, feel free to reach out!  
+Find me on [GitHub](https://github.com/marazmlab) or [LinkedIn](https://www.linkedin.com/in/belz/).
+
+&nbsp;
+
+## 🔶 Acknowledgments
+
+Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) for providing this task and code review guidance.
+
+---
+
+This is a learning project demonstrating basic React + Redux concepts. Feel free to explore the code and use it as a reference for your own projects!
+
