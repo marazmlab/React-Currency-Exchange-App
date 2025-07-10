@@ -8,7 +8,7 @@ const CurrencyTable = ({ currencies, onRemove, portfolioSummary = null }) => {
         <TableWrapper>
             {portfolioSummary && (
             <PortfolioSummary>
-                <h3>📊 Portfolio Summary</h3>
+                <h3>Portfolio Summary</h3>
                 <div className="total-value">
                     Total Value: {portfolioSummary.totalValue} EUR
                 </div>

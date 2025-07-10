@@ -62,7 +62,7 @@ export const PortfolioSummary = styled.div`
 
   h3 {
     margin-bottom: 0.5rem;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.primary};
   }
 
   .total-value {
