@@ -36,10 +36,10 @@ const CurrencyFormContainer = () => {
         if (name === 'date' && formData.currency) {
             try {
                 const rate = await fetchExchangeRate(formData.currency, value);
-                if (rate && typeof rate === 'number')  {
+                if (rate && typeof rate === 'object' && rate[formData.currency])  {
                     setFormData((prevData) => ({
                         ...prevData,
-                        price: rate.toFixed(2),
+                        price: rate[formData.currency].toFixed(2),
                     }));
                 } else {
                     console.error(`Rate for ${formData.currency} is missing`)
