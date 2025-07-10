@@ -44,6 +44,7 @@ const CurrencyForm = ({ onSubmit, formData, onChange }) => {
                     onChange={onChange}
                     required
                     min="0"
+                    step="0.01"
                 />
             </label>
             <Button type="submit">Add Currency</Button>
