@@ -47,3 +47,17 @@ export const Button = styled.button`
     background-color: ${({ theme }) => theme.buttonHover};
   }
 `;
+
+export const Select = styled.select`
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid ${({ theme }) => theme.border};
+    border-radius: 4px;
+    cursor: pointer;
+
+    option {
+        background-color: ${({ theme }) => theme.background};
+        color: ${({ theme }) => theme.text};
+    }
+`

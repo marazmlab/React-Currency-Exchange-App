@@ -1,19 +1,29 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Form, Input, Button } from './CurrencyForm.styled'
+import { Form, Input, Button, Select } from './CurrencyForm.styled'
 
 const CurrencyForm = ({ onSubmit, formData, onChange }) => {
     return (
         <Form onSubmit={onSubmit}>
             <label>
-                <Input
-                    placeholder="Currency"
-                    type="text"
+                <Select
                     name="currency"
                     value={formData.currency}
                     onChange={onChange}
                     required
-                />
+                >
+                    <option value="">Select Currency</option>
+                    <option value="USD">🇺🇸 USD - US Dollar</option>
+                    <option value="EUR">🇪🇺 EUR - Euro</option>
+                    <option value="PLN">🇵🇱 PLN - Polish Złoty</option>
+                    <option value="GBP">🇬🇧 GBP - British Pound</option>
+                    <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                    <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                    <option value="ISK">🇮🇸 ISK - Icelandic Króna</option>
+                    <option value="NOK">🇳🇴 NOK - Norwegian Krone</option>
+                    <option value="SEK">🇸🇪 SEK - Swedish Krona</option>
+                    <option value="DKK">🇩🇰 DKK - Danish Krone</option>
+                </Select>
             </label>
             <label>
                 <Input
