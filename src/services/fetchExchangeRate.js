@@ -1,5 +1,5 @@
 const fetchExchangeRate = async (targetCurrency = null, date = 'latest') => {
-    const API_KEY = 'd4fc05d2e0918ea984d9e900ba8f6147'; // Wstaw swój klucz API
+    const API_KEY = '9b56def518ad8401a74b3436def42889'; // Wstaw swój klucz API
     const isValidDate = date === 'latest' || /^\d{4}-\d{2}-\d{2}$/.test(date);
 
     if (!isValidDate) {

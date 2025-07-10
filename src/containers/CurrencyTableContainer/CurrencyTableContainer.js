@@ -12,7 +12,14 @@ const CurrencyTableContainer = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetchExchangeRate();
+        const getExchangeRates = async () => {
+            const rates = await fetchExchangeRate();
+            if (rates) {
+                setExchangeRates(rates);
+            }
+        };
+
+        getExchangeRates();
     }, []);
 
     const handleRemove = (id) => {

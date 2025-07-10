@@ -36,7 +36,7 @@ const CurrencyFormContainer = () => {
         if (name === 'date' && formData.currency) {
             try {
                 const rate = await fetchExchangeRate(formData.currency, value);
-                if (rate && formData === 'number')  {
+                if (rate && typeof rate === 'number')  {
                     setFormData((prevData) => ({
                         ...prevData,
                         price: rate.toFixed(2),
