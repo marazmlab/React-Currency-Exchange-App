@@ -2,6 +2,14 @@
 
 Simple React + Redux learning project for currency conversion. Built to practice Redux fundamentals, API integration, and styled-components.
 
+&nbsp;
+
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?style=for-the-badge&logo=github)](https://marazmlab.github.io/React-Currency-Exchange-App/)
+
+&nbsp;
+
 ## ✨ Features
 
 - Convert between different currencies

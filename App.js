@@ -16,7 +16,7 @@ const App = () => {
         <Provider store={store}>
             <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
                 <GlobalStyles />
-                    <h1>Currency Wallet</h1>
+                    <h1>Currency Wallet (EUR)</h1>
                     <ThemeToggleContainer />
                     <CurrencyFormContainer />
                     <CurrencyTableContainer />
